@@ -1,0 +1,30 @@
+Metrics提供监控的工具：
+
+·Gauges：用于某一个值的测量。
+
+·Counters：计数器是一个AtomicLong的实例，可以增加或减少其值。
+
+·Histograms: 统计数值的分布，例如最大值、最小值和平均值等。
+
+·Meters：测量一段时间内的事件发生率，例如TPS。
+
+·Timers：测量一段代码被调用的速率和持续时间的分布。
+
+·Health Checks：检测服务健康的状况。
+
+Reporter 是展示输出的意思
+ConsoleReporter：控制台
+·CsvReporter：CSV文件
+·Slf4jReporter：Logback、Log4j等日志输出
+·JmxReporter：基于JMX的输出
+·GangliaReporter：监控工具Ganglia
+·GraphiteReporter：监控工具Graphite
+
+Metrics需要指定监控Reporter的展示输出方式，例如GaugeTest，初始化ConsoleReporter需要设置统计的周期，这里设置的是1s。
+
+Reporter最核心的是ScheduledReporter抽象基类，
+在这个抽象基类中定义了子类的构造方式，定义了通用的方法：开始统计、结束统计和根据不同工具产生的结果输出。
+
+Reporter之所以可以周期性的输出，实际上底层用到的就是ScheduledExecutorService类，
+通过Executors.newSingleThreadScheduledExecutor进行创建。
+

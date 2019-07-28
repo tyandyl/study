@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app>
+
+    <display-name>wy-manage-web</display-name>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>Window</servlet-name>
+        <servlet-class>Window</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Window</servlet-name>
+        <url-pattern>/Window</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Button</servlet-name>
+        <servlet-class>Button</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Button</servlet-name>
+        <url-pattern>/Button</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Dog</servlet-name>
+        <servlet-class>Dog</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Dog</servlet-name>
+        <url-pattern>/Dog</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TablePanel</servlet-name>
+        <servlet-class>TablePanel</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TablePanel</servlet-name>
+        <url-pattern>/TablePanel</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MoveClick</servlet-name>
+        <servlet-class>MoveClick</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MoveClick</servlet-name>
+        <url-pattern>/MoveClick</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>OpenWindow</servlet-name>
+        <servlet-class>OpenWindow</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>OpenWindow</servlet-name>
+        <url-pattern>/OpenWindow</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ComboList</servlet-name>
+        <servlet-class>ComboList</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ComboList</servlet-name>
+        <url-pattern>/ComboList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TableList</servlet-name>
+        <servlet-class>TableList</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TableList</servlet-name>
+        <url-pattern>/TableList</url-pattern>
+    </servlet-mapping>
+
+</web-app>

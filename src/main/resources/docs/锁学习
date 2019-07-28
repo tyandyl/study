@@ -1,0 +1,28 @@
+线程阻塞(阻塞当前线程)：
+LockSupport.park(this);
+LockSupport.park();
+上边两个方法的底层代码都是调用： UNSAFE.park(boolean isAbsolute, long time);
+注：AbstractQueuedSynchronizerTest类因为是我自己写的，调用Unsafe unsafe属性因为有安全设置，不能初始化，
+改成反射getUnsafe()避开安全设置。
+
+public native void park(boolean isAbsolute, long time);
+第一个参数是是否是绝对时间，
+第二个参数是等待时间值。如果isAbsolute是true则会实现ms定时。如果isAbsolute是false则会实现ns定时（注意这里后面的单位纳秒）。
+其中isAbsolute标志位的含义是，如果为true则time是毫秒数，如果为false则time为微秒数
+举例如下：
+UNSAFE.park(false, 0L);
+执行普通的挂起，isAbsolute是false，time是0。
+三种情况：
+1.在调用park()之前调用了unpark或者interrupt则park直接返回，不会挂起。
+2.如果未调用，则park会挂起当前线程。
+3.park未知原因调用出错则直接返回（一般不会出现）
+
+UNSAFE.park(false, 1000L);
+执行普通的挂起，isAbsolute是false，time是1000L。
+三种情况：
+1.在调用park()之前调用了unpark或者interrupt则park直接返回，不会挂起。
+2.如果未调用则会挂起当前线程，但是在挂起1000L时如果未收到唤醒信号也会返回继续执行
+3.park未知原因调用出错则直接返回（一般不会出现）
+
+Unsafe如果看不明白，看TIM里的Unsafe类解析。
+
